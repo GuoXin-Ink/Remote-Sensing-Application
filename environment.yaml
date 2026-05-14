@@ -1,7 +1,7 @@
 name: rs-class-env
 channels:
   - conda-forge
-  - defaults
+  - nodefaults  # 关键：彻底屏蔽默认频道，防止依赖冲突
 dependencies:
   # 基础环境
   - python=3.10
@@ -13,7 +13,7 @@ dependencies:
   - pandas
   - scipy
   
-  # 遥感与空间分析核心库 (Conda 会自动处理 GDAL 等底层依赖)
+  # 遥感与空间分析核心库
   - gdal
   - geopandas
   - rasterio
