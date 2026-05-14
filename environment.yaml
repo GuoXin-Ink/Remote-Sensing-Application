@@ -1,0 +1,37 @@
+name: rs-class-env
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  # 基础环境
+  - python=3.10
+  - jupyterlab
+  - ipykernel
+  
+  # 核心科学计算与数据处理
+  - numpy
+  - pandas
+  - scipy
+  
+  # 遥感与空间分析核心库 (Conda 会自动处理 GDAL 等底层依赖)
+  - gdal
+  - geopandas
+  - rasterio
+  - shapely
+  - cartopy
+  - pygmt
+  
+  # 图像处理与机器学习
+  - scikit-image
+  - scikit-learn
+  - arosics
+  
+  # 可视化工具
+  - matplotlib
+  - folium
+  - panel
+  - holoviews
+  
+  # 云原生遥感数据访问
+  - pystac-client
+  - planetary-computer
