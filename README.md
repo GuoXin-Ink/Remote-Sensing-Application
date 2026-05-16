@@ -34,10 +34,3 @@ Run the notebooks in this order:
 
 4. `FeatureTrackingLab/4. run_streamlit_viewer.ipynb`  
    Start the Streamlit viewer and open the forwarded `8501` port to inspect the Part 3 `.npz` result interactively.
-
-## Notes
-
-- Keep all files in `FeatureTrackingLab/` together.
-- `earth_relief_30s_south_island.nc` is a small DEM subset used by Part 1.
-- The notebooks save generated outputs into `FeatureTrackingLab/`.
-- Generated files such as `.tif`, `.png`, `.npz`, `.nc`, and `.cpt` are ignored by Git.
