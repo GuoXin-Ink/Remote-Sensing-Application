@@ -1,0 +1,24 @@
+name: rsa-lab
+channels:
+  - conda-forge
+  - nodefaults
+dependencies:
+  - python=3.11
+  - ipykernel
+  - pip
+  - numpy
+  - matplotlib
+  - pillow
+  - plotly
+  - streamlit
+  - scipy
+  - shapely
+  - pyproj
+  - rasterio
+  - gdal
+  - gmt
+  - pygmt
+  - contextily
+  - autorift
+  - pystac-client
+  - planetary-computer
