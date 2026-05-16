@@ -7,4 +7,5 @@ cloudflared
 *.png
 *.npz
 *.nc
+!earth_relief_30s_south_island.nc
 *.cpt

@@ -10,10 +10,6 @@ else
   conda env create -f .devcontainer/environment.yml
 fi
 
-echo "Enabling GMT remote dataset downloads"
-conda run -n rsa-lab gmt set GMT_DATA_SERVER NOAA
-conda run -n rsa-lab gmt set GMT_DATA_UPDATE_INTERVAL 1d
-
 echo "Registering Jupyter kernel: Python (rsa-lab)"
 conda run -n rsa-lab python -m ipykernel install \
   --user \

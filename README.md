@@ -46,5 +46,6 @@ Codespaces will show a forwarded port for Streamlit. Open the forwarded `8501` p
 ## Notes
 
 - Keep all files in `FeatureTrackingLab/` together.
+- `earth_relief_30s_south_island.nc` is a small DEM subset used by Part 1, so the notebook does not need to download GMT relief data during class.
 - The notebooks save generated outputs into `FeatureTrackingLab/`.
 - Generated files such as `.tif`, `.png`, `.npz`, `.nc`, and `.cpt` are ignored by Git.
