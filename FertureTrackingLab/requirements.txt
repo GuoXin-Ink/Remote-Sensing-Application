@@ -1,0 +1,15 @@
+# Minimal pip-installable packages imported by the lab notebooks and Streamlit app.
+# Part 1/3 setup cells install GMT, GDAL/osgeo and autoRIFT from conda-forge.
+contextily>=1.6
+matplotlib>=3.7
+numpy>=1.24
+Pillow>=9.0
+planetary-computer>=1.0
+plotly>=5.18
+pygmt>=0.12
+pyproj>=3.5
+pystac-client>=0.7
+rasterio>=1.3
+scipy>=1.10
+shapely>=2.0
+streamlit>=1.28
