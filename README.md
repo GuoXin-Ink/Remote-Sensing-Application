@@ -32,16 +32,8 @@ Run the notebooks in this order:
 3. `FeatureTrackingLab/3. fox_glacier_b08_autorift.ipynb`  
    Run autoRIFT feature tracking and save velocity results.
 
-## Interactive Viewer
-
-After Part 3 finishes, run the Streamlit viewer from the Codespaces terminal:
-
-```bash
-cd FeatureTrackingLab
-streamlit run "4. autorift_speed_scatter_app.py"
-```
-
-Codespaces will show a forwarded port for Streamlit. Open the forwarded `8501` port in the browser.
+4. `FeatureTrackingLab/4. run_streamlit_viewer.ipynb`  
+   Start the Streamlit viewer and open the forwarded `8501` port to inspect the Part 3 `.npz` result interactively.
 
 ## Notes
 
