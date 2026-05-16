@@ -1,8 +1,8 @@
-# Fox Glacier Feature Tracking Lab 操作与讲解指南
+# Fox Glacier Feature Tracking Lab 复现指南
 
-这份 Markdown 用来记录课堂 lab 的完整流程：从打开 GitHub Codespaces，到运行 3 个 notebook，再到用 Streamlit 查看最终 feature tracking 结果。
+本文档记录 Fox Glacier feature tracking lab 的复现流程：打开 GitHub Codespaces，依次运行 notebook，并使用 Streamlit 查看最终结果。
 
-你可以在每个小节的图片占位处加入自己的截图，用来展示界面、代码逻辑和输出结果。
+文档中的图片占位可替换为运行过程和结果截图。
 
 ## 1. 打开 GitHub Codespaces
 
@@ -23,11 +23,11 @@ Python (rsa-lab)
 ![Kernel selection](images/kernel_selection.png)
 ```
 
-如果暂时看不到 `Python (rsa-lab)`，先等环境安装完成，再刷新浏览器页面。环境来自 `.devcontainer/environment.yml`。
+环境由 `.devcontainer/environment.yml` 创建。若暂时看不到 `Python (rsa-lab)`，等待环境安装完成后刷新页面。
 
 ## 2. 文件运行顺序
 
-建议按下面顺序运行：
+按下面顺序运行：
 
 1. `1. plot_south_island_dem.ipynb`
 2. `2. optical_image_check.ipynb`
@@ -40,7 +40,7 @@ Python (rsa-lab)
 - `earth_relief_30s_south_island.nc`：Part 1 使用的 South Island DEM 子集。
 - `4. autorift_speed_scatter_app.py`：Part 4 调用的 Streamlit 程序。
 
-所有生成结果都会保存在 `FeatureTrackingLab/` 当前文件夹中。`.tif`、`.png`、`.npz`、`.cpt` 和大多数 `.nc` 文件已经被 `.gitignore` 忽略，不会被误提交。
+生成结果保存在 `FeatureTrackingLab/` 当前文件夹中。`.tif`、`.png`、`.npz`、`.cpt` 和大多数 `.nc` 文件已在 `.gitignore` 中忽略。
 
 ## 3. Part 1: Research Area Map
 
@@ -74,7 +74,7 @@ south_island_dem.png
 ![Part 1 research area map](images/part1_research_area.png)
 ```
 
-常用可调参数：
+可调参数：
 
 | 参数 | 当前值 | 作用 |
 |---|---:|---|
@@ -87,7 +87,7 @@ south_island_dem.png
 | `LEFT_MAP_SCALE` | `"jBR+w200k+o0.65c/0.75c"` | 左侧总览图比例尺 |
 | `RIGHT_MAP_SCALE` | `"jBR+w2k+o0.65c/0.75c"` | 右侧局部图比例尺 |
 
-如果想改字体大小，可以改类似这些位置：
+字体大小相关位置：
 
 ```python
 fig.text(..., font="12p,Helvetica-Bold,black")
@@ -95,7 +95,7 @@ LABEL_PANEL = "18p,Helvetica-Bold,black"
 LEFT_FONT_ANNOT = "10p"
 ```
 
-如果想改地图范围，可以改：
+地图范围相关位置：
 
 ```python
 R_LEFT = [166.0, 174.5, -47.5, -40.3]
@@ -180,7 +180,7 @@ PRESET_MAX_AOI_CLOUD_PCT = 10.0
 PRESET_MAX_AOI_SNOW_PCT = 40.0
 ```
 
-阈值越低，筛选越严格，影像更干净，但可用日期更少。阈值越高，可用日期更多，但可能包含云或雪的干扰。
+阈值越低，筛选越严格，可用日期通常越少；阈值越高，可用日期通常越多。
 
 ## 5. Part 3: autoRIFT Feature Tracking
 
@@ -326,62 +326,4 @@ Streamlit 可交互修改内容：
 | `Show raster basemap under plot` | 在结果下方显示 B08 GeoTIFF 底图 |
 | `Basemap opacity` | 调整底图透明度 |
 
-注意：Streamlit 只用于结果可视化，不会重新运行 autoRIFT。如果要改变 feature tracking 结果，需要回到 Part 3 修改参数并重新运行。
-
-## 7. 建议课堂讲解顺序
-
-可以把整个 lab 拆成四段讲：
-
-1. 研究区背景：为什么先画 South Island 和 Fox Glacier inset。
-2. 光学影像筛选：如何用 cloud/snow 阈值选择可用 Sentinel-2 影像。
-3. Feature tracking：如何从两期影像位移得到冰川速度。
-4. 交互查看：如何用 Streamlit 调整色标、矢量和底图显示。
-
-建议截图顺序：
-
-```markdown
-![Repository page](images/01_repo.png)
-![Codespaces build](images/02_codespaces_build.png)
-![Part 1 map](images/03_research_area.png)
-![Part 2 quicklook](images/04_optical_check.png)
-![Part 3 outputs](images/05_autorift_outputs.png)
-![Streamlit scatter](images/06_streamlit_scatter.png)
-![Streamlit quiver](images/07_streamlit_quiver.png)
-```
-
-## 8. 常见问题
-
-如果 `git pull` 失败，并提示 notebook 有本地修改，通常是因为运行 notebook 后保存了输出。若不需要保留这些输出，可以运行：
-
-```bash
-git restore "FeatureTrackingLab/1. plot_south_island_dem.ipynb"
-git restore "FeatureTrackingLab/2. optical_image_check.ipynb"
-git restore "FeatureTrackingLab/3. fox_glacier_b08_autorift.ipynb"
-git pull origin main
-```
-
-如果 notebook 报缺少 package，先确认内核是：
-
-```text
-Python (rsa-lab)
-```
-
-如果 Streamlit 已经启动，但浏览器没有自动打开，在 Codespaces 的 `Ports` 面板中点击 forwarded `8501` 链接。
-
-如果 Part 2 找不到合适影像，可以适当放宽筛选条件：
-
-```python
-PRESET_MAX_AOI_CLOUD_PCT = 20.0
-PRESET_MAX_AOI_SNOW_PCT = 60.0
-PRESET_DATETIME = "2022-01-01T00:00:00Z/2026-12-31T23:59:59Z"
-```
-
-如果 Part 3 运行太慢，可以先调稀 tracking grid：
-
-```python
-GRID_STEP = 16
-MARGIN = 64
-threads = 4
-```
-
-如果静态图的矢量太密或太稀，可以在 Part 3 修改 `GRID_STEP`，也可以在 Streamlit 中调整 `Max arrows`。
+Streamlit 展示 Part 3 生成的 `.npz` 结果。Feature tracking 参数在 Part 3 中修改。
