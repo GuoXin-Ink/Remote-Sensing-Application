@@ -1,6 +1,6 @@
 {
   "name": "Fox Glacier Feature Tracking Lab",
-  "image": "mcr.microsoft.com/devcontainers/miniconda:1",
+  "image": "mcr.microsoft.com/devcontainers/miniconda:3",
   "postCreateCommand": "bash .devcontainer/setup.sh",
   "forwardPorts": [8501],
   "portsAttributes": {
