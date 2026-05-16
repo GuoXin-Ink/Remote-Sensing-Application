@@ -1,5 +1,6 @@
 __pycache__/
 *.pyc
+LAB_GUIDE.md
 streamlit_colab.log
 cloudflared
 *.tif
