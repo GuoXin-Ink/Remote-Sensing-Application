@@ -2,7 +2,7 @@
 
 This repository contains a classroom lab for reproducing a Sentinel-2 optical feature-tracking workflow over Fox Glacier, New Zealand.
 
-All teaching materials are in `FertureTrackingLab/`.
+All teaching materials are in `FeatureTrackingLab/`.
 
 ## Lab Order
 
@@ -22,6 +22,6 @@ The Streamlit app itself is `4. autorift_speed_scatter_app.py`.
 
 ## Notes
 
-- Keep all files in `FertureTrackingLab/` together.
+- Keep all files in `FeatureTrackingLab/` together.
 - The notebooks save outputs into the same folder.
 - Colab setup cells are included in the notebooks.
