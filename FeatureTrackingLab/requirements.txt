@@ -14,3 +14,4 @@ rasterio>=1.3
 scipy>=1.10
 shapely>=2.0
 streamlit>=1.28
+xarray>=2024.1
