@@ -2,3 +2,9 @@ __pycache__/
 *.pyc
 streamlit_colab.log
 cloudflared
+*.tif
+*.tiff
+*.png
+*.npz
+*.nc
+*.cpt
